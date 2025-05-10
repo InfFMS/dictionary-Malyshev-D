@@ -15,3 +15,30 @@
 # 1. Поиск друзей (соседей) для заданного пользователя.
 # 2. Проверка, являются ли два пользователя друзьями (есть ли ребро между вершинами).
 # 3. Поиск изолированных пользователей (вершин без рёбер).
+friends_graph = {
+     "Анна": ["Борис", "Виктор", "Дарья"],
+     "Борис": ["Анна", "Виктор"],
+     "Виктор": ["Анна", "Борис", "Дарья"],
+     "Дарья": ["Анна", "Виктор", "Елена"],
+     "Елена": ["Дарья"]}
+def f1(a):
+    if a in friends_graph:
+        print(friends_graph[a])
+    else:
+        print(f'У {a} нет друзей :(')
+def f2(b, c):
+    if b not in friends_graph or c not in friends_graph:
+        print('нет')
+    elif c not in friends_graph[b]:
+        print('нет')
+    else: print('Да')
+def f3():
+    k = 0
+    for i in range(len(friends_graph)):
+        if len(friends_graph[list(friends_graph)[i]]) == 0:
+            print(f'У {list(friends_graph)[i]} нет друзей')
+            k+=1
+    if k == 0:
+        print('У всех есть друзья')
+
+f3()
