@@ -6,3 +6,11 @@
 # Первый словарь: {'a': 100, 'b': 200, 'c':300}
 # Второй словарь: {'a': 300, 'b': 200, 'd':400}
 # Результат: {'a': 400, 'b': 400, 'd': 400, 'c': 300}
+dict1 = {'a': 100, 'b': 200, 'c':300}
+dict2 = {'a': 300, 'b': 200, 'd':400}
+for i in range(len(dict1)):
+    for j in range(len(dict2)):
+        if list(dict1)[i] == list(dict2)[j]:
+            dict1[list(dict1)[i]] += dict2[list(dict2)[j]]
+dict2.update(dict1)
+print(dict2)
